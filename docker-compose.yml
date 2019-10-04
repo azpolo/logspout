@@ -1,0 +1,22 @@
+version: "3.2"
+networks:
+  prometheus:
+services:
+  logspout:
+    image: thojkooi/logspout
+    command: "udp://10.36.96.21:5000"
+    networks:
+      - prometheus
+    ports:
+      - 5000:5000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    deploy:
+      mode: global
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 1024M
+        reservations:
+          cpus: '0.20'
+          memory: 512M
