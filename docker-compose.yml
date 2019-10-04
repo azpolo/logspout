@@ -6,7 +6,7 @@ services:
     image: thojkooi/logspout
     command: "udp://10.36.96.21:5000"
     networks:
-      - neus
+      - neus_molamil
     ports:
       - 5000:5000
     volumes:
